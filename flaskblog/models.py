@@ -17,3 +17,18 @@ class User(db.Model, UserMixin):
 
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.subject}')"
+    
+class Timetable(db.Model):
+    day = db.Column(db.String(10), primary_key=True)
+    one = db.Column(db.String(20), unique=False, nullable=True)
+    two = db.Column(db.String(20), unique=False, nullable=True)
+    three = db.Column(db.String(20), unique=False, nullable=True)
+    four = db.Column(db.String(20), unique=False, nullable=True)
+    five = db.Column(db.String(20), unique=False, nullable=True)
+    one = db.Column(db.String(20), unique=False, nullable=True)
+    one = db.Column(db.String(20), unique=False, nullable=True)
+    one = db.Column(db.String(20), unique=False, nullable=True)
+    one = db.Column(db.String(20), unique=False, nullable=True)
+
+    def __repr__(self):
+        return f"Day('{self.day}')"
