@@ -1,36 +1,18 @@
 from flask import render_template, url_for, flash, redirect, request
 from flaskblog import app, db, bcrypt
 from flaskblog.forms import RegistrationForm, LoginForm
-from flaskblog.models import User, Post
+from flaskblog.models import User
 from flask_login import login_user, current_user, logout_user, login_required
-
-
-posts = [
-    {
-        'author': 'Corey Schafer',
-        'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
-    },
-    {
-        'author': 'Jane Doe',
-        'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
-    }
-]
-
 
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template('home.html', posts=posts)
+    return render_template('home.html')
 
-
-@app.route("/about")
-def about():
-    return render_template('about.html', title='About')
-
+@app.route("/timetable")
+@login_required
+def timetable():
+    return render_template('timetable.html', title='Timetable', timetable=1)
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
@@ -39,7 +21,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = User(username=form.username.data, email=form.email.data, subject=form.subject.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Your account has been created! You are now able to log in', 'success')

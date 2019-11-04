@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div style="text-align: center;">
+        <p class="font-weight-bold"><h1>TimeTable</h1></p>
+    </div>
+    <table class="table table-bordered table-dark">
+        <thead class="thead-light">
+        <tr>
+            <th>Day</th>
+            <th>8:00 - 8:50</th>
+            <th>8:50 - 9:40</th>
+            <th>9:40 - 10:30</th>
+            <th>10:30 - 11:20</th>
+            <th>11:20 - 12:10</th>
+            <th>12:10 - 1:00</th>
+            <th>2:30 - 3:20</th>
+            <th>3:20 - 4:10</th>
+            <th>4:10 - 5:00</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">Monday</th>
+            <td> - </td>
+            <td>IWP</td>
+            <td>Entrepreneurship</td>
+            <td colspan="3"> IWP Lab </td>
+            <td> - </td>
+            <td>DM</td>
+            <td>ACA</td>
+        </tr>
+        <tr>
+            <th scope="row">Tuesday</th>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td>IWP</td>
+            <td>Entrepreneurship</td>
+            <td colspan="3">IWP Lab</td>
+        </tr>
+        <tr>
+            <th scope="row">Wednesday</th>
+            <td> - </td>
+            <td>ERTS</td>
+            <td>ERTS</td>
+            <td>DM</td>
+            <td> - </td>
+            <td> - </td>
+            <td>ACA</td>
+            <td>IWP</td>
+            <td>IWP</td>
+        </tr>
+        <tr>
+            <th scope="row">Thursday</th>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td>Entrepreneurship</td>
+            <td>ACA</td>
+            <td>Entrepreneurship</td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>
+        <tr>
+            <th scope="row">Friday</th>
+            <td> - </td>
+            <td>DM</td>
+            <td>ACA</td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+            <td>ERTS</td>
+            <td>ERTS</td>
+        </tr>
+        <tr>
+            <th scope="row">Saturday</th>
+            <td colspan="3">Project CS - 1</td>
+            <td colspan="3">Project CS - 2</td>
+            <td> - </td>
+            <td> - </td>
+            <td> - </td>
+        </tr>        
+    </tbody>
+    </table>
+{% endblock content %}
