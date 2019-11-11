@@ -1,10 +1,20 @@
-{% extends "layout.html" %}
-{% block content %}
-    <div style="text-align: center;">
-        <p class="font-weight-bold"><h1>TimeTable</h1></p>
-    </div>
-    <table class="table table-bordered table-dark">
-        <thead class="thead-light">
+{% extends "layout.html" %} {% block head %}
+<style>
+    .action:hover .pp {
+        display: none;
+    }
+    
+    .action:hover .button {
+        display: inline-block;
+    }
+</style>
+{% endblock %} {% block content %}
+<div style="text-align: center;">
+    <p class="font-weight-bold">
+        <h1>TimeTable</h1></p>
+</div>
+<table class="table table-bordered table-dark">
+    <thead class="thead-light">
         <tr>
             <th>Day</th>
             <th>8:00 - 8:50</th>
@@ -17,64 +27,224 @@
             <th>3:20 - 4:10</th>
             <th>4:10 - 5:00</th>
         </tr>
-        </thead>
-        <tbody>
+    </thead>
+    <tbody>
         <tr>
-            <th scope="row">{{ tt['d1'].day }}</th>
-            <td class="button">
-                {{ tt['d1'].p1 }}
-                <button type="button" style="display: none;"  class="button btn btn-success">Take</button>
+            <th scope="row">
+                <p>{{ tt['d1'].day }}</p>
+            </th>
+            {% if d_dict['Monday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d1'].p1 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
             </td>
-            <td>{{ tt['d1'].p2 }}</td>
-            <td>{{ tt['d1'].p3 }}</td>
+            {% else %}
+            <td>
+                <p>{{ tt['d1'].p1 }}</p>
+            </td>
+            {% endif %}
+            <td>
+                <p>{{ tt['d1'].p2 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d1'].p3 }}</p>
+            </td>
             <td colspan="3">{{ tt['d1'].p4 }}</td>
-            <td>{{ tt['d1'].p7 }}</td>
-            <td>{{ tt['d1'].p8 }}</td>
-            <td>{{ tt['d1'].p9 }}</td>
+            {% if d_dict['Monday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d1'].p7 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d1'].p7 }}</p>
+            </td>
+            {% endif %}
+            <td>
+                <p>{{ tt['d1'].p8 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d1'].p9 }}</p>
+            </td>
         </tr>
         <tr>
             <th scope="row">{{ tt['d2'].day }}</th>
-            <td>{{ tt['d2'].p1 }}</td>
-            <td>{{ tt['d2'].p2 }}</td>
-            <td>{{ tt['d2'].p3 }}</td>
-            <td>{{ tt['d2'].p4 }}</td>
-            <td>{{ tt['d2'].p5 }}</td>
-            <td>{{ tt['d2'].p6 }}</td>
-            <td colspan="3">{{ tt['d2'].p7 }}</td>
+            {% if d_dict['Tuesday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d2'].p1 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d2'].p2 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d2'].p3 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d2'].p4 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d2'].p1 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d2'].p2 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d2'].p3 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d2'].p4 }}</p>
+            </td>
+            {% endif %}
+            <td>
+                <p>{{ tt['d2'].p5 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d2'].p6 }}</p>
+            </td>
+            <td colspan="3">
+                <p>{{ tt['d2'].p7 }}</p>
+            </td>
         </tr>
         <tr>
             <th scope="row">Wednesday</th>
-            <td> - </td>
+            {% if d_dict['Wednesday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d3'].p1 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d3'].p1 }}</p>
+            </td>
+            {% endif %}
             <td>ERTS</td>
             <td>ERTS</td>
             <td>DM</td>
-            <td> - </td>
-            <td> - </td>
+            {% if d_dict['Wednesday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d3'].p5 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d3'].p6 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d3'].p5 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d3'].p6 }}</p>
+            </td>
+            {% endif %}
             <td>ACA</td>
             <td>IWP</td>
             <td>IWP</td>
         </tr>
         <tr>
             <th scope="row">Thursday</th>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
+            {% if d_dict['Thursday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p1 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p2 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p3 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d4'].p1 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d4'].p2 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d4'].p3 }}</p>
+            </td>
+            {% endif %}
             <td>Entrepreneurship</td>
             <td>ACA</td>
             <td>Entrepreneurship</td>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
+            {% if d_dict['Thursday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p7 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p8 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d4'].p9 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d4'].p7 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d4'].p8 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d4'].p9 }}</p>
+            </td>
+            {% endif %}
         </tr>
         <tr>
             <th scope="row">Friday</th>
-            <td> - </td>
+            {% if d_dict['Friday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d5'].p1 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d5'].p1 }}</p>
+            </td>
+            {% endif %}
             <td>DM</td>
             <td>ACA</td>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
+            {% if d_dict['Tuesday'] > d_dict[day] %}
+            <td class='action'>
+                <p class="pp">{{ tt['d5'].p4 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d5'].p5 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d5'].p6 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            <td class='action'>
+                <p class="pp">{{ tt['d5'].p7 }}</p>
+                <button type="button" class="button btn btn-primary">Take</button>
+            </td>
+            {% else %}
+            <td>
+                <p>{{ tt['d5'].p4 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d5'].p5 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d5'].p6 }}</p>
+            </td>
+            <td>
+                <p>{{ tt['d5'].p7 }}</p>
+            </td>
+            {% endif %}
             <td>ERTS</td>
             <td>ERTS</td>
         </tr>
@@ -85,7 +255,15 @@
             <td> - </td>
             <td> - </td>
             <td> - </td>
-        </tr>        
+        </tr>
     </tbody>
-    </table>
+</table>
+<script>
+    document.querySelector(".action").addEventListener("mouseover",()=>{
+    document.querySelector(".button").style.display= "block";	
+    })
+    document.querySelector(".action").addEventListener("mouseout",()=>{
+    document.querySelector(".button").style.display= "none";	
+    })
+</script>
 {% endblock content %}
