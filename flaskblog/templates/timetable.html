@@ -20,24 +20,27 @@
         </thead>
         <tbody>
         <tr>
-            <th scope="row">Monday</th>
-            <td> - </td>
-            <td>IWP</td>
-            <td>Entrepreneurship</td>
-            <td colspan="3"> IWP Lab </td>
-            <td> - </td>
-            <td>DM</td>
-            <td>ACA</td>
+            <th scope="row">{{ tt['d1'].day }}</th>
+            <td class="button">
+                {{ tt['d1'].p1 }}
+                <button type="button" style="display: none;"  class="button btn btn-success">Take</button>
+            </td>
+            <td>{{ tt['d1'].p2 }}</td>
+            <td>{{ tt['d1'].p3 }}</td>
+            <td colspan="3">{{ tt['d1'].p4 }}</td>
+            <td>{{ tt['d1'].p7 }}</td>
+            <td>{{ tt['d1'].p8 }}</td>
+            <td>{{ tt['d1'].p9 }}</td>
         </tr>
         <tr>
-            <th scope="row">Tuesday</th>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
-            <td> - </td>
-            <td>IWP</td>
-            <td>Entrepreneurship</td>
-            <td colspan="3">IWP Lab</td>
+            <th scope="row">{{ tt['d2'].day }}</th>
+            <td>{{ tt['d2'].p1 }}</td>
+            <td>{{ tt['d2'].p2 }}</td>
+            <td>{{ tt['d2'].p3 }}</td>
+            <td>{{ tt['d2'].p4 }}</td>
+            <td>{{ tt['d2'].p5 }}</td>
+            <td>{{ tt['d2'].p6 }}</td>
+            <td colspan="3">{{ tt['d2'].p7 }}</td>
         </tr>
         <tr>
             <th scope="row">Wednesday</th>

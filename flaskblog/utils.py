@@ -1,0 +1,6 @@
+#t1 = Timetable(day='Monday',p1=None,p2='IWP',p3='Enterpreneurship',p4='IWP Lab',p5='IWP Lab',p6='IWP Lab',p7=None,p8='DM',p9='ACA')
+#t2 = Timetable(day='Tuesday',p1=None,p2=None,p3=None,p4=None,p5='IWP',p6='Enterpreneurship',p7='IWP Lab',p8='IWP Lab',p9='IWP Lab')
+#t3 = Timetable(day='Wednesday',p1=None,p2='ERTS',p3='ERTS',p4='DM',p5=None,p6=None,p7='ACA',p8='IWP',p9='IWP')
+#t4 = Timetable(day='Thursday',p1=None,p2=None,p3=None,p4='Enterpreneurship',p5='ACA',p6='Enterpreneurship',p7=None,p8=None,p9=None)
+#t5 = Timetable(day='Friday',p1=None,p2='DM',p3='ACA',p4=None,p5=None,p6=None,p7=None,p8='ERTS',p9='ERTS')
+#t6 = Timetable(day='Saturday', p1='Project CS - 1',p2='Project CS - 1',p3='Project CS - 1',p4='Project CS - 2',p5='Project CS - 2',p6='Project CS - 2',p7=None,p8=None,p9=None)
