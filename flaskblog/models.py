@@ -1,4 +1,3 @@
-from datetime import datetime
 from flaskblog import db, login_manager
 from flask_login import UserMixin
 
@@ -21,11 +20,14 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f"User('{self.username}', '{self.email}', '{self.subject}')"
 
+
 class Timetable(db.Model):
     '''
     The timetable table from which current time table will be fetched
     '''
-    day = db.Column(db.String(20), primary_key=True, unique=True, nullable=False)
+    day = db.Column(
+        db.String(20), primary_key=True, unique=True, nullable=False
+    )
     p1 = db.Column(db.String(20), unique=False, nullable=True)
     p2 = db.Column(db.String(20), unique=False, nullable=True)
     p3 = db.Column(db.String(20), unique=False, nullable=True)
@@ -38,4 +40,5 @@ class Timetable(db.Model):
 
     def __repr__(self):
         return f"Day: {self.day}, P1: {self.p1}, P2: {self.p2}, P3: {self.p3},\
-        P4: {self.p4}, P5: {self.p5}, P6: {self.p6}, P7: {self.p7}, P8: {self.p8}, P9: {self.p9}"
+        P4: {self.p4}, P5: {self.p5}, P6: {self.p6}, P7: {self.p7}, \
+        P8: {self.p8}, P9: {self.p9}"
