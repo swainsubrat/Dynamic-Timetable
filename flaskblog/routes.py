@@ -1,9 +1,12 @@
 from flask import render_template, url_for, flash, redirect, request
 from flaskblog import app, db, bcrypt
-from flaskblog.forms import RegistrationForm, LoginForm
-from flaskblog.models import User, Timetable
+from flaskblog.forms import RegistrationForm, LoginForm, ResumeForm
+from flaskblog.models import Applicants, User, Timetable
 from flask_login import login_user, current_user, logout_user, login_required
 from datetime import datetime
+from werkzeug.utils import secure_filename
+import os
+
 
 @app.route("/")
 @app.route("/home")
@@ -68,3 +71,31 @@ def logout():
 @login_required
 def account():
     return render_template('account.html', title='Account')
+
+
+@app.route("/apply", methods=['GET', 'POST'])
+def apply():
+    form = ResumeForm()
+    if form.validate_on_submit():
+        f = form.resume.data
+        filename = secure_filename(f.filename)
+        f.save(os.path.join(
+            app.instance_path, 'resumes', filename
+        ))
+        applicants = Applicants(
+            name=form.name.data,
+            number=form.number.data,
+            email=form.email.data,
+            qualification=form.qualification.data,
+            resume_filename=filename
+        )
+        db.session.add(applicants)
+        db.session.commit()
+        flash('Document uploaded successfully.')
+        return redirect(url_for('home'))
+    return render_template('apply.html', title='Apply', form=form)
+
+
+# @app.route("/admin", methods=['GET', 'POST'])
+# def admin():
+#     form = RetrieveForm()

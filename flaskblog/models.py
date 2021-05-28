@@ -7,6 +7,18 @@ def load_user(user_id):
     return User.query.get(int(user_id))
 
 
+class Applicants(db.Model, UserMixin):
+    '''
+    The Applicants table in which the applicants data is stored
+    '''
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    number = db.Column(db.Integer, unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    qualification = db.Column(db.String(20), unique=True, nullable=False)
+    resume_filename = db.Column(db.String(60), nullable=False)
+
+
 class User(db.Model, UserMixin):
     '''
     The User table in which the user data is stored
